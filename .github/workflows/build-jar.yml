@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout source code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Java 21
@@ -22,11 +22,11 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        working-directory: backend
+        working-directory: demo
         run: mvn clean package -DskipTests
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
-          name: FullStack-jar
-          path: backend/target/FullStack.jar
+          name: fullstack-jar
+          path: demo/target/FullStack.jar
