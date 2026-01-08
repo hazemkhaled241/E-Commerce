@@ -22,10 +22,10 @@ public class ProductController {
     public Iterable<ProductDto> getAllProducts(
             @RequestParam(required = false, defaultValue = "", name = "categoryId") String categoryId
     ) {
-        if (!Set.of("name", "description", "price").contains(sort)) {
+      /*  if (!Set.of("name", "description", "price").contains(sort)) {
             sort = "name";
-        }
-        return productRepository.findAll(Sort.by(sort)).stream().map(productMapper::toDto).toList();
+        }*/
+        return productRepository.findAll().stream().map(productMapper::toDto).toList();
     }
 
     @GetMapping("/{id}")
