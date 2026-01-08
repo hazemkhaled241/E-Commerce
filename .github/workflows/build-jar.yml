@@ -22,10 +22,11 @@ jobs:
           cache: maven
 
       - name: Build with Maven
+        working-directory: backend
         run: mvn clean package -DskipTests
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
           name: FullStack-jar
-          path: target/FullStack.jar
+          path: backend/target/FullStack.jar
